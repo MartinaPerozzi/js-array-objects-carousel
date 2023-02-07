@@ -32,28 +32,30 @@ const buttonNext = document.querySelector(".next");
 let activeImage = 0;
 
 // For con index
-for (let i = 0; i < images.length; i++) {
-    const currentImage = images[i];
+generateSlider();
+function generateSlider() {
+    for (let i = 0; i < images.length; i++) {
+        const currentImage = images[i];
 
-    let img = currentImage.image;
-    let title = currentImage.title;
-    let text = currentImage.text;
-    console.log(img);
-    let slideClass = "item";
+        let img = currentImage.image;
+        let title = currentImage.title;
+        let text = currentImage.text;
+        console.log(img);
+        let slideClass = "item";
 
-    if (i == activeImage) {
-        slideClass += " active";
-    }
+        if (i == activeImage) {
+            slideClass += " active";
+        }
 
-    const slide = `<div class="${slideClass}">
+        const slide = `<div class="${slideClass}">
     <img src="./${img}" alt="">
     <div class="title-text">
     <h2>"${title}"</h2>
     <p> "${text}" <p></div>
     </div>`;
 
-    itemsContainer.innerHTML += slide;
-
+        itemsContainer.innerHTML += slide;
+    }
 }
 
 // ADD EVENT LISTENER NEXT (l'ordine è importante)
@@ -111,7 +113,9 @@ buttonPrev.addEventListener(
 
     }
 )
+
 thumbnail()
+
 // BONUS 1
 function thumbnail() {
     for (image of images) {
@@ -123,22 +127,42 @@ function thumbnail() {
         const slider_img = `
         <div class="col thumb">
     <img class="thumbnails-img" src="./${img}" alt="">
-    </div>`
-            ;
+    </div>` ;
 
         slider.innerHTML += slider_img;
 
-        const imgThumb = document.querySelectorAll(".thumb");
-
-        imgThumb.forEach((element) => {
-            element.addEventListener(
-                "click",
-                function () {
-
-                }
-            )
-        });
-
-
     }
 }
+thumbfunction();
+function thumbfunction() {
+
+    const imgThumb = document.querySelectorAll(".thumb");
+
+    imgThumb.forEach((element) => {
+        element.addEventListener(
+            "click",
+            function () {
+                // carouselclick();
+
+            }
+        )
+
+    });
+
+}
+
+// function carouselclick() {
+//     const slides = document.querySelectorAll(".item");
+//     console.log(slides);
+
+//     // Rimuovo la classe active dall'elemento 0
+
+//     slides[activeImage].classList.remove("active");
+
+//     // Incremento 
+
+//     activeImage++;
+
+//     // Aggiungo all'immagine la classe active
+//     slides[activeImage].classList.add("active");
+// }
