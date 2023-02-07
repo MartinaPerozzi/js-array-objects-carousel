@@ -36,6 +36,8 @@ for (let i = 0; i < images.length; i++) {
     const currentImage = images[i];
 
     let img = currentImage.image;
+    let title = currentImage.title;
+    let text = currentImage.text;
     console.log(img);
     let slideClass = "item";
 
@@ -45,9 +47,12 @@ for (let i = 0; i < images.length; i++) {
 
     const slide = `<div class="${slideClass}">
     <img src="./${img}" alt="">
-    </div>`;
+    </div><div class="title-text"><h2>"${title}"</h2>
+            <p> "${text}" <p></div>`;
 
     itemsContainer.innerHTML += slide;
+
+
 
 }
 
@@ -76,6 +81,7 @@ buttonNext.addEventListener(
         // Aggiungo all'immagine la classe active
 
         slides[activeImage].classList.add("active");
+
 
     }
 )
