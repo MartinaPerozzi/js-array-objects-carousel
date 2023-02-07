@@ -46,13 +46,11 @@ for (let i = 0; i < images.length; i++) {
     }
 
     const slide = `<div class="${slideClass}">
-    <img src="./${img}" alt="">
-    </div><div class="title-text"><h2>"${title}"</h2>
+    <img src="./${img}" alt=""></div><div class="title-text"><h2>"${title}"</h2>
             <p> "${text}" <p></div>`;
 
+
     itemsContainer.innerHTML += slide;
-
-
 
 }
 
