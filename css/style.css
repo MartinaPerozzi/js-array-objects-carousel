@@ -47,6 +47,19 @@ img {
 .title-text {
     position: absolute;
     bottom: 30px;
-    left: 70%;
+    left: 300px;
     color: white;
+    right: 30px;
+}
+
+.row-thumb {
+    height: 100px;
+}
+
+.row-thumb img {
+    height: 100%;
+}
+
+.row-thumb>* {
+    height: 100%;
 }

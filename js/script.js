@@ -46,9 +46,11 @@ for (let i = 0; i < images.length; i++) {
     }
 
     const slide = `<div class="${slideClass}">
-    <img src="./${img}" alt=""></div><div class="title-text"><h2>"${title}"</h2>
-            <p> "${text}" <p></div>`;
-
+    <img src="./${img}" alt="">
+    <div class="title-text">
+    <h2>"${title}"</h2>
+    <p> "${text}" <p></div>
+    </div>`;
 
     itemsContainer.innerHTML += slide;
 
@@ -77,13 +79,10 @@ buttonNext.addEventListener(
             activeImage = 0;
         }
         // Aggiungo all'immagine la classe active
-
         slides[activeImage].classList.add("active");
-
 
     }
 )
-
 
 // ADD EVENT LISTENER PREV (l'ordine è importante)
 buttonPrev.addEventListener(
@@ -91,7 +90,6 @@ buttonPrev.addEventListener(
     function () {
 
         // Prendo tutti gli item (oggetti html)
-
         const slides = document.querySelectorAll(".item");
         console.log(slides);
 
@@ -113,3 +111,34 @@ buttonPrev.addEventListener(
 
     }
 )
+thumbnail()
+// BONUS 1
+function thumbnail() {
+    for (image of images) {
+        const currentImage = image;
+        let img = currentImage.image;
+
+        const slider = document.querySelector(".row-thumb");
+
+        const slider_img = `
+        <div class="col thumb">
+    <img class="thumbnails-img" src="./${img}" alt="">
+    </div>`
+            ;
+
+        slider.innerHTML += slider_img;
+
+        const imgThumb = document.querySelectorAll(".thumb");
+
+        imgThumb.forEach((element) => {
+            element.addEventListener(
+                "click",
+                function () {
+
+                }
+            )
+        });
+
+
+    }
+}
