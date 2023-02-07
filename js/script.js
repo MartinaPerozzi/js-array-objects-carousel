@@ -23,7 +23,7 @@ const images = [
     }
 ];
 
-// MILESTONE 0
+// MILESTONE 0- MILESTONE 1
 // prendo gli elementi dal DOM
 const itemsContainer = document.querySelector(".items");
 const buttonPrev = document.querySelector(".prev");
@@ -31,23 +31,81 @@ const buttonNext = document.querySelector(".next");
 // 
 let activeImage = 0;
 
-for (const image of images) {
-    const currentImage = image;
-    // console.log(currentImage.image);
+// For con index
+for (let i = 0; i < images.length; i++) {
+    const currentImage = images[i];
+
     let img = currentImage.image;
     console.log(img);
     let slideClass = "item";
 
-    if (image == activeImage) {
-        slideClass += "active";
+    if (i == activeImage) {
+        slideClass += " active";
     }
-
-    // const generatedImage = document.createElement("div");
-    // itemsContainer.append(generatedImage);
 
     const slide = `<div class="${slideClass}">
     <img src="./${img}" alt="">
     </div>`;
 
     itemsContainer.innerHTML += slide;
+
 }
+
+// ADD EVENT LISTENER NEXT (l'ordine è importante)
+buttonNext.addEventListener(
+    "click",
+    function () {
+
+        // Prendo tutti gli item (oggetti html)
+
+        const slides = document.querySelectorAll(".item");
+        console.log(slides);
+
+        // Rimuovo la classe active dall'elemento 0
+
+        slides[activeImage].classList.remove("active");
+
+        // Incremento 
+
+        activeImage++;
+
+        // MILESTONE 2
+        if (activeImage >= slides.length) {
+            activeImage = 0;
+        }
+        // Aggiungo all'immagine la classe active
+
+        slides[activeImage].classList.add("active");
+
+    }
+)
+
+
+// ADD EVENT LISTENER PREV (l'ordine è importante)
+buttonPrev.addEventListener(
+    "click",
+    function () {
+
+        // Prendo tutti gli item (oggetti html)
+
+        const slides = document.querySelectorAll(".item");
+        console.log(slides);
+
+        // Rimuovo la classe active dall'elemento 0
+
+        slides[activeImage].classList.remove("active");
+
+        // Incremento 
+
+        activeImage--;
+
+        // MILESTONE 2
+        if (activeImage < 0) {
+            activeImage = slides.length - 1;
+        }
+        // Aggiungo all'immagine la classe active
+
+        slides[activeImage].classList.add("active");
+
+    }
+)
