@@ -112,5 +112,33 @@ thumbsLink.forEach((thumb, index) => { //Ad ognuna di loro assegno l'AddEvList.
         switcher(thisIndex); //dico allo switcher di andare su data posizione
     })
 })
+// AUTOPLAY- intervallo delle funzione anonima ogni 3secondi
+
+// Setto una variabile 
+let autoPlayForward = true;
+
+const autoplay = setInterval(() => {
+
+    if (autoPlayForward) {
+        nextSlide();
+    } else {
+        prevSlide();
+    }
+}, 3000);
+
+// STOP AUTOPLAY
+const stopButton = document.querySelector(".stop");
+const backwardButton = document.querySelector(".backward");
+const forwardButton = document.querySelector(".forward");
+
+stopButton.addEventListener("click", () => {
+    clearInterval(autoplay);
+});
+
+backwardButton.addEventListener("click", () => {
+    autoPlayForward = !autoPlayForward;
+});
+
+
 
 
